@@ -4,6 +4,11 @@
     const express = require("express");
     const mongoose = require("mongoose");
     const bodyParser = require("body-parser");
+    require('dotenv').config();
+
+// INITIALIZE APP EXPRESS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// ////////////////////////////////////////////////////////////////////////////  
+
     const app = express();
 
 // INITIATE BODY PARSER xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -37,7 +42,9 @@
 
         function mongoConnectWithLoveMainBase () {
 
-            var mogooseConnectionStringMainBase = "mongodb+srv://EdBear:Yv3yu00qePkUC0v4@withlove.ejkplu1.mongodb.net/mainBase";
+            const monkey = process.env.monKey;
+
+            var mogooseConnectionStringMainBase = `mongodb+srv://EdBear:${monkey}@withlove.ejkplu1.mongodb.net/mainBase`;
             
             
                 mongoose.connect(mogooseConnectionStringMainBase, {
