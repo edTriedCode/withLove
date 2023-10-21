@@ -4280,35 +4280,84 @@
 
 
 
-                // setInterval(() => {
+                
+                    bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
 
-                //     bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
 
-
-                //     document.onkeydown = function (e) {
+                    document.onkeydown = function (e) {
     
-                //         // disable F12 key
-                //         if(e.keyCode == 123) {
-                //             return false;
-                //         }
-                
-                //         // disable I key
-                //         if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
-                //             return false;
-                //         }
-                
-                //         // disable J key
-                //         if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-                //             return false;
-                //         }
-                
-                //         // disable U key
-                //         if(e.ctrlKey && e.keyCode == 85) {
-                //             return false;
-                //         }
-                //     }
+                        // disable F12 key
+                        if(e.keyCode == 123) {
 
-                // }, 100);
+                            location.reload();
+                            return false;
+
+                        }
+                
+                        // disable I key
+                        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+
+                            location.reload();
+                            return false;
+                            
+                        }
+                
+                        // disable J key
+                        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+
+                            location.reload();
+                            return false;
+                            
+                        }
+                
+                        // disable U key
+                        if(e.ctrlKey && e.keyCode == 85) {
+
+                            location.reload();
+                            return false;
+
+                        }
+                    }
+
+
+                    document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+                    !function() {
+                        function detectDevTool(allow) {
+                          if(isNaN(+allow)) allow = 100;
+                          var start = +new Date(); // Validation of built-in Object tamper prevention.
+                          debugger;
+                          var end = +new Date(); // Validates too.
+                          if(isNaN(start) || isNaN(end) || end - start > allow) {
+                            // input your code here when devtools detected.
+
+                            location.reload();
+                          }
+                        }
+                        if(window.attachEvent) {
+                          if (document.readyState === "complete" || document.readyState === "interactive") {
+                              detectDevTool();
+                            window.attachEvent('onresize', detectDevTool);
+                            window.attachEvent('onmousemove', detectDevTool);
+                            window.attachEvent('onfocus', detectDevTool);
+                            window.attachEvent('onblur', detectDevTool);
+                          } else {
+                              setTimeout(argument.callee, 0);
+                          }
+                        } else {
+                          window.addEventListener('load', detectDevTool);
+                          window.addEventListener('resize', detectDevTool);
+                          window.addEventListener('mousemove', detectDevTool);
+                          window.addEventListener('focus', detectDevTool);
+                          window.addEventListener('blur', detectDevTool);
+                        }
+                      }();
+
+
+
+
+                
 
 
         // COMMENTS INPUT FUNCTIONS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
