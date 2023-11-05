@@ -72,6 +72,26 @@
 
         </div>
 
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <!-- LANGUAGE BUTTON TRANSLATOR TAB ------------------------------>
+
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+            <div class="withLoveLangaugeSelectorContainer">
+
+                <div class="withLoveLangaugeSelectorResizer">
+
+                    <div class="withLoveLanguageSelectorDropDownContainerMain">
+
+                        <select class="withLoveLanguageSelectorDropDownContainer"></select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
 
 
 
@@ -1274,7 +1294,7 @@
                                                                         class="submitCommentsUserNameInput"
                                                                         name="nameInputOne"
                                                                         maxlength="20"
-                                                                        placeholder="enter any username"
+                                                                        placeholder="create a username"
 
                                                                     >
 
@@ -1544,6 +1564,100 @@
             </div>
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- GET HOST CORNER INFO ///////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////////////////// -->
+            
+
+            <div class="hostCornerInfoGetterContainer">
+
+                <div class="hostCornerInfoGetterResizer">
+
+                    <form class="hostCornerInfoGetterFormTaker" action="/" method="get">
+
+                        <% var arrayForElements = [] %>
+
+                        <% var getUserNameSelected = "" %>
+                        <% var getUserDescriptionSelected = "" %>
+
+
+
+            
+                        <% selected.forEach(selectedCriteria => { %>
+
+                            <% getUserNameSelected = selectedCriteria.lovinUsernameSelected %>
+                            <% getUserDescriptionSelected = selectedCriteria.lovingDescriptionSelected %>
+
+                            <% console.log("userNameSelected: " + getUserNameSelected); %>
+                            <% console.log("userDescriptionSelected: " + getUserDescriptionSelected); %>
+
+                        <% }) %>
+
+                        <!-- GETS USERNAME ---------------------------- -->
+                        <!-- ////////////////////////////////////////// -->
+
+                            <div class="hostCornerUserNameContainer">
+
+                                <input
+                                
+                                    type="text"
+                                    value="<%=getUserNameSelected%>"
+                                    name="hostUserNameInput"
+                                    placeholder="waiting for user name"
+                                    class="hostCornerUserNameInputField"
+                                    readonly
+
+                                >
+
+                            </div>
+    
+                            <div class="spacer">
+
+                            </div>
+
+                        <!-- GETS USER COMMENT ------------------------ -->
+                        <!-- ////////////////////////////////////////// -->
+
+                            <div class="hostCornerUserCommentContainer">
+
+                                <input
+                                
+                                    type="text"
+                                    value="<%=getUserDescriptionSelected%>"
+                                    name="hostUserCommentInput"
+                                    placeholder="waiting for user comment"
+                                    class="hostCornerUserCommentInputField"
+                                    readonly
+
+                                >
+
+                            </div>
+
+                    </form>
+
+                </div>
+
+            </div>
         
     </div>
 

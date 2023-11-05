@@ -3,6 +3,97 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
+    // DROP DOWN PROPERTIES FOR LANGUAGE SELECTOR -----------------------------
+
+        // FOR SELECTORS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        // ////////////////////////////////////////////////////////////////////
+
+            var selectTag = document.querySelectorAll("select");
+            var selectLanguageDropDown = document.querySelector(".withLoveLanguageSelectorDropDownContainer");
+
+                // GET TEXT TO TRANSLATE //////////////////////////////////////
+                // ////////////////////////////////////////////////////////////
+
+                    var cornerHostComment = document.querySelector(".contentContainerIntroSubParaText");
+
+                    var headlineText = document.querySelector(".userTitleCardTextContainer");
+                    var hostIntro = document.querySelector(".contentContainerIntroSubParaText");
+
+                    var musicHeadliner = document.querySelector(".contentContainerMusicHeadlinerText");
+                    var commentsHeadliner = document.querySelector(".contentContainerCommentsHeadlinerText");
+
+                    var commentIntroHeadliner = document.querySelector(".contentCommentsSubTextHeader");
+                    var commentIntroBody = document.querySelector(".contentCommentsSubTextBody");
+
+                    var commentBoxIntroHeadliner = document.querySelector(".submitCommentsFormHeadertextContainer");
+
+                    var commentCreateUserName = document.querySelector(".submitCommentsUserNameInput");
+                    var commentCreateDescriptionText = document.querySelector(".CommentSongListDescription");
+                    var commentCreateDescriptionPlaceHolder = document.querySelector(".CommentSongListDescription");
+
+
+
+                    var commentCreateSongOneHeadliner = document.querySelector(".CommentSongListHeadlinerTextContainerOne");
+                    var commentCreateSongOneArtistName = document.querySelector(".CommentSongListArtistNameInputOne");
+                    var commentCreateSongOneSongtName = document.querySelector(".CommentSongListSongNameInputOne");
+
+                    
+                    // CREATE VARIABLE FARM FOR SONGS CAPTURE =================
+                    // ////////////////////////////////////////////////////////
+
+                        var songTwoHeadliner = "";
+                        var songTwoArtistName = "";
+                        var songTwoSongName = "";
+
+
+                        var songThreeHeadliner = "";
+                        var songThreeArtistName = "";
+                        var songThreeSongName = "";
+
+
+                        var songFourHeadliner = "";
+                        var songFourArtistName = "";
+                        var songFourSongName = "";
+
+
+                        var songFiveHeadliner = "";
+                        var songFiveArtistName = "";
+                        var songFiveSongName = "";
+
+
+                            // FOR SUBMIT BUTTON CREATION ---------------------
+                            // ////////////////////////////////////////////////
+
+                                var dynamicSubmitButton = "";
+
+
+
+                    var commentCreateAddSongButton = document.querySelector(".commentsSonListAddSongButtonActual");
+
+                    var termsAndConditions = document.querySelector(".endLineActualText");
+
+                // STORE ALL SUPPORTED LANGUAGES AS OBJECT --------------------
+                // ////////////////////////////////////////////////////////////
+
+                    const countries = {
+
+                        "en-US": "english",
+                        "af": "afrikaans",
+                        "ar-SA": "عربي"
+
+                    }
+
+            selectTag.forEach(tag => {
+                for(const country_code in countries) {
+
+                    let option = `<option value="${country_code}">${countries[country_code]}</option>`;
+
+                    tag.insertAdjacentHTML("beforeend", option);
+
+                }
+            })
+
+
     // DROP DOWN MENU PROPERTIES CONTROLS CONTENT AND CLICKERS ----------------
 
 
@@ -10,7 +101,7 @@
         ///////////////////////////////////////////////////////////////////////
 
 
-            // SON PLATE CLICKERS TEST ///////////////////////////////////////
+            // SONG PLATE CLICKERS TEST //////////////////////////////////////
             //================================================================
 
                 var singPlateOverallContainer = document.querySelector(".trackListContainer");
@@ -302,8 +393,29 @@
                             // CREATE ATTRIBUTES FOR BUTTON ------------------
                             // ///////////////////////////////////////////////
 
-                                submitButtonCreate.setAttribute("type", "submit");
-                                submitButtonCreate.setAttribute("value", "submit");
+
+
+                                    // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                    // //////////////////////////////////////////
+
+                                        if ( selectTag[0].value == "af" ) {
+
+                                            submitButtonCreate.setAttribute("type", "submit");
+                                            submitButtonCreate.textContent = "indien";
+
+                                        } else if ( selectTag[0].value == "en-US" ) {
+
+                                            submitButtonCreate.setAttribute("type", "submit");
+                                            submitButtonCreate.textContent = "submit";
+
+                                        } else if ( selectTag[0].value == "ar-SA" ) {
+
+                                            submitButtonCreate.setAttribute("type", "submit");
+                                            submitButtonCreate.textContent = "يُقدِّم";
+
+                                        }
+
+
 
                             // STYLES FOR BUTTON -----------------------------
                             // ///////////////////////////////////////////////
@@ -329,11 +441,6 @@
                                     -ms-transition:all 600ms ease;
                                 
                                 `
-
-                            // SET BUTTON TEXT -------------------------------
-                            // ///////////////////////////////////////////////
-
-                                submitButtonCreate.textContent = "submit";
 
 
             // ADD SONG BUTTON ///////////////////////////////////////////////
@@ -419,9 +526,47 @@
             
                                         var songBoxHeadlinerContainer = document.createElement("div");
                                         songBoxHeadlinerContainer.className = `CommentSongListHeadlinerTextContainer${trackNumberSwitched[classMakerCounter]}`;
+
+
+
+                                            // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                            // //////////////////////////////////////////
+
+                                                if ( selectTag[0].value == "af" ) {
+
+                                                    var createArrayForAfrikaansNumbers = [
+
+                                                        "een", "twee", "drie", "vier", "vyf"
+
+                                                    ]
             
+                                                    songBoxHeadlinerContainer.textContent = `liedjie ${createArrayForAfrikaansNumbers[classMakerCounter]}`;
+
+                                                } else if ( selectTag[0].value == "en-US" ) {
             
-                                        songBoxHeadlinerContainer.textContent = `song ${trackNumberSmall[classMakerCounter]}`;
+                                                    songBoxHeadlinerContainer.textContent = `song ${trackNumberSmall[classMakerCounter]}`;
+
+                                                } else if ( selectTag[0].value == "ar-SA" ) {
+
+                                                    var createArrayForArabicNumbers = [
+
+                                                        "واحدة", "الثانية", "ثلاثة", "أربعة", "خمسة"
+
+                                                    ]
+
+                                                        if (classMakerCounter == 1) {
+            
+                                                            songBoxHeadlinerContainer.textContent = `${createArrayForArabicNumbers[classMakerCounter]} الأغنية`;
+
+                                                        } else {
+            
+                                                            songBoxHeadlinerContainer.textContent = `${createArrayForArabicNumbers[classMakerCounter]} أغنية`;
+
+                                                        }
+
+                                                }
+
+
             
                                         songBoxHeadlinerContainer.style = `
                                         
@@ -514,7 +659,28 @@
             
                                                             artistNameBoxInput.setAttribute("artist",`artist${trackNumberSwitched[classMakerCounter]}`);
                                                             artistNameBoxInput.setAttribute("name",`artist${trackNumberSwitched[classMakerCounter]}`);
-                                                            artistNameBoxInput.setAttribute("placeholder","artist name");
+
+
+
+                                                                // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                                                // //////////////////////////////////////////
+                    
+                                                                    if ( selectTag[0].value == "af" ) {
+                    
+                                                                        artistNameBoxInput.setAttribute("placeholder","kunstenaar naam");
+                    
+                                                                    } else if ( selectTag[0].value == "en-US" ) {
+                                
+                                                                        artistNameBoxInput.setAttribute("placeholder","artist name");
+                    
+                                                                    } else if ( selectTag[0].value == "ar-SA" ) {
+                    
+                                                                        artistNameBoxInput.setAttribute("placeholder","اسم فنان");
+                    
+                                                                    }
+
+
+
                                                             artistNameBoxInput.setAttribute("maxlength","20");
             
             
@@ -618,7 +784,28 @@
             
                                                             songNameBoxInput.setAttribute("id",`song${trackNumberSwitched[classMakerCounter]}`);
                                                             songNameBoxInput.setAttribute("name",`song${trackNumberSwitched[classMakerCounter]}`);
-                                                            songNameBoxInput.setAttribute("placeholder","song name");
+
+
+
+                                                                // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                                                // //////////////////////////////////////////
+                    
+                                                                    if ( selectTag[0].value == "af" ) {
+                    
+                                                                        songNameBoxInput.setAttribute("placeholder","liedjie naam");
+                    
+                                                                    } else if ( selectTag[0].value == "en-US" ) {
+                                
+                                                                        songNameBoxInput.setAttribute("placeholder","song name");
+                    
+                                                                    } else if ( selectTag[0].value == "ar-SA" ) {
+                    
+                                                                        songNameBoxInput.setAttribute("placeholder","إسم الأغنية");
+                    
+                                                                    }
+                                                                
+
+
                                                             songNameBoxInput.setAttribute("maxlength","30");
             
             
@@ -737,6 +924,241 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+
+    // CHECK IF ELEMENTS EXIST AND THEN DECLARE THEM //////////////////////////
+    // ////////////////////////////////////////////////////////////////////////
+
+        // CREATE FUNCTION FOR DYNAMIC CLASSES TO REGISTER xxxxxxxxxxxxxxxxxxxx
+        // ////////////////////////////////////////////////////////////////////
+
+            // SONG TWO BUILD -------------------------------------------------
+            // ////////////////////////////////////////////////////////////////
+
+            function checkForSongElementTwo () {
+
+                if ( document.querySelector(".CommentSongListHeadlinerTextContainerTwo") == undefined ) {
+
+                    console.log("does not exist skipping...");
+
+                } else {
+
+                    var commentCreateSongTwoHeadliner = document.querySelector(".CommentSongListHeadlinerTextContainerTwo").textContent;
+                    var commentCreateSongTwoArtistName = document.querySelector(".CommentSongListArtistNameInputTwo").value;
+                    var commentCreateSongTwoSongtName = document.querySelector(".CommentSongListSongNameInputTwo").value;
+
+                    songTwoHeadliner = commentCreateSongTwoHeadliner;
+                    songTwoArtistName = commentCreateSongTwoArtistName;
+                    songTwoSongName = commentCreateSongTwoSongtName;
+
+                }
+
+            }
+
+
+        // SONG THREE BUILD ---------------------------------------------------
+        // ////////////////////////////////////////////////////////////////////
+
+            function checkForSongElementThree () {
+
+                if ( document.querySelector(".CommentSongListHeadlinerTextContainerThree") == undefined ) {
+
+                    console.log("does not exist skipping...");
+
+                } else {
+
+                    var commentCreateSongThreeHeadliner = document.querySelector(".CommentSongListHeadlinerTextContainerThree").textContent;
+                    var commentCreateSongThreeArtistName = document.querySelector(".CommentSongListArtistNameInputThree").value;
+                    var commentCreateSongThreeSongtName = document.querySelector(".CommentSongListSongNameInputThree").value;
+
+                    songThreeHeadliner = commentCreateSongThreeHeadliner;
+                    songThreeArtistName = commentCreateSongThreeArtistName;
+                    songThreeSongName = commentCreateSongThreeSongtName;
+
+                }
+
+            }
+
+
+        // SONG FOUR BUILD ----------------------------------------------------
+        // ////////////////////////////////////////////////////////////////////
+
+            function checkForSongElementFour () {
+
+                if ( document.querySelector(".CommentSongListHeadlinerTextContainerFour") == undefined ) {
+
+                    console.log("does not exist skipping...");
+
+                } else {
+
+                    var commentCreateSongFourHeadliner = document.querySelector(".CommentSongListHeadlinerTextContainerFour").textContent;
+                    var commentCreateSongFourArtistName = document.querySelector(".CommentSongListArtistNameInputFour").value;
+                    var commentCreateSongFourSongtName = document.querySelector(".CommentSongListSongNameInputFour").value;
+
+                    songFourHeadliner = commentCreateSongFourHeadliner;
+                    songFourArtistName = commentCreateSongFourArtistName;
+                    songFourSongName = commentCreateSongFourSongtName;
+
+                }
+
+            }
+
+
+        // SONG FIVE BUILD ----------------------------------------------------
+        // ////////////////////////////////////////////////////////////////////
+
+            function checkForSongElementFive () {
+
+                if ( document.querySelector(".CommentSongListHeadlinerTextContainerFive") == undefined ) {
+
+                    console.log("does not exist skipping...");
+
+                } else {
+
+                    var commentCreateSongFiveHeadliner = document.querySelector(".CommentSongListHeadlinerTextContainerFive").textContent;
+                    var commentCreateSongFiveArtistName = document.querySelector(".CommentSongListArtistNameInputFive").value;
+                    var commentCreateSongFiveSongtName = document.querySelector(".CommentSongListSongNameInputFive").value;
+
+                    songFiveHeadliner = commentCreateSongFiveHeadliner;
+                    songFiveArtistName = commentCreateSongFiveArtistName;
+                    songFiveSongName = commentCreateSongFiveSongtName;
+
+                }
+
+            }
+
+
+        // SUBMIT BUTTON BUILD ------------------------------------------------
+        // ////////////////////////////////////////////////////////////////////
+
+            function checkForSubmitButtonElement () {
+
+                if ( document.querySelector(".submitCommentsUserCommentSubmitButtonActual") == undefined ) {
+
+                    console.log("does not exist skipping...");
+
+                } else {
+
+                    var commentCreateSubmitButton = document.querySelector(".submitCommentsUserCommentSubmitButtonActual");
+
+                    dynamicSubmitButton = commentCreateSubmitButton;
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // HOST CORNER HEADER CONTAINER FUNCTIONS ---------------------------------
+    // ////////////////////////////////////////////////////////////////////////
+
+        function hostCornerFunctions () {
+
+            // GET HOST CORNER VARIABLES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            // ////////////////////////////////////////////////////////////////
+
+                var cornerHostUsername = document.querySelector(".contentContainerIntroParaHeaderText");
+
+                var getPoopulatedHostName = document.querySelector(".hostCornerUserNameInputField").value;
+                var getPoopulatedHostDescription = document.querySelector(".hostCornerUserCommentInputField").value;
+
+                var makeCapital = getPoopulatedHostName.charAt(0).toUpperCase() + getPoopulatedHostName.slice(1);
+
+                    // POPULATE HOSTS CORNER FIELDS ---------------------------
+                    // ////////////////////////////////////////////////////////
+
+                        if ( toString(makeCapital).includes(".") ) {
+
+                            console.log("already includes full, stop doing nun.");
+
+                        } else {
+
+                            console.log("ADDING FULL STOP.");
+
+                            cornerHostUsername.textContent = makeCapital + ".";
+
+                        }
+
+                        cornerHostComment.textContent = getPoopulatedHostDescription;
+
+                    // REMOVE MINI COMPILER -----------------------------------
+                    // ////////////////////////////////////////////////////////
+
+                        var miniCompilor = document.querySelector(".hostCornerInfoGetterContainer");
+
+                            miniCompilor.remove();
+
+                            console.log("GONEZO...")
+
+        } 
+        
+        
+
+
+            // RUN THIS FUNCTION //////////////////////////////////////////////
+            // ////////////////////////////////////////////////////////////////
+
+                hostCornerFunctions();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // MUSIC SECTION FUNCTIONS ------------------------------------------------
     // ////////////////////////////////////////////////////////////////////////
 
@@ -3871,9 +4293,37 @@
 
                             }
 
-                } 
+                }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // COMMENTS SECTION FUNCTIONS ---------------------------------------------
     // ////////////////////////////////////////////////////////////////////////
 
@@ -4280,79 +4730,128 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // LETS DISSAPEAR HUH xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                // ////////////////////////////////////////////////////////////////////////////
+                // ////////////////////////////////////////////////////////////////////////////
+
                 
-                    bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
+                    // bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
 
 
-                    document.onkeydown = function (e) {
+                    // document.onkeydown = function (e) {
     
-                        // disable F12 key
-                        if(e.keyCode == 123) {
+                    //     // disable F12 key
+                    //     if(e.keyCode == 123) {
 
-                            location.reload();
-                            return false;
+                    //         location.reload();
+                    //         return false;
 
-                        }
+                    //     }
                 
-                        // disable I key
-                        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+                    //     // disable I key
+                    //     if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
 
-                            location.reload();
-                            return false;
+                    //         location.reload();
+                    //         return false;
                             
-                        }
+                    //     }
                 
-                        // disable J key
-                        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                    //     // disable J key
+                    //     if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
 
-                            location.reload();
-                            return false;
+                    //         location.reload();
+                    //         return false;
                             
-                        }
+                    //     }
                 
-                        // disable U key
-                        if(e.ctrlKey && e.keyCode == 85) {
+                    //     // disable U key
+                    //     if(e.ctrlKey && e.keyCode == 85) {
 
-                            location.reload();
-                            return false;
+                    //         location.reload();
+                    //         return false;
 
-                        }
-                    }
-
-
-                    document.addEventListener('contextmenu', event => event.preventDefault());
+                    //     }
+                    // }
 
 
-                    !function() {
-                        function detectDevTool(allow) {
-                          if(isNaN(+allow)) allow = 100;
-                          var start = +new Date(); // Validation of built-in Object tamper prevention.
-                          debugger;
-                          var end = +new Date(); // Validates too.
-                          if(isNaN(start) || isNaN(end) || end - start > allow) {
-                            // input your code here when devtools detected.
+                    // document.addEventListener('contextmenu', event => event.preventDefault());
 
-                            location.reload();
-                          }
-                        }
-                        if(window.attachEvent) {
-                          if (document.readyState === "complete" || document.readyState === "interactive") {
-                              detectDevTool();
-                            window.attachEvent('onresize', detectDevTool);
-                            window.attachEvent('onmousemove', detectDevTool);
-                            window.attachEvent('onfocus', detectDevTool);
-                            window.attachEvent('onblur', detectDevTool);
-                          } else {
-                              setTimeout(argument.callee, 0);
-                          }
-                        } else {
-                          window.addEventListener('load', detectDevTool);
-                          window.addEventListener('resize', detectDevTool);
-                          window.addEventListener('mousemove', detectDevTool);
-                          window.addEventListener('focus', detectDevTool);
-                          window.addEventListener('blur', detectDevTool);
-                        }
-                      }();
+
+                    // !function() {
+                    //     function detectDevTool(allow) {
+                    //       if(isNaN(+allow)) allow = 100;
+                    //       var start = +new Date(); // Validation of built-in Object tamper prevention.
+                    //       debugger;
+                    //       var end = +new Date(); // Validates too.
+                    //       if(isNaN(start) || isNaN(end) || end - start > allow) {
+                    //         // input your code here when devtools detected.
+
+                    //         location.reload();
+                    //       }
+                    //     }
+                    //     if(window.attachEvent) {
+                    //       if (document.readyState === "complete" || document.readyState === "interactive") {
+                    //           detectDevTool();
+                    //         window.attachEvent('onresize', detectDevTool);
+                    //         window.attachEvent('onmousemove', detectDevTool);
+                    //         window.attachEvent('onfocus', detectDevTool);
+                    //         window.attachEvent('onblur', detectDevTool);
+                    //       } else {
+                    //           setTimeout(argument.callee, 0);
+                    //       }
+                    //     } else {
+                    //       window.addEventListener('load', detectDevTool);
+                    //       window.addEventListener('resize', detectDevTool);
+                    //       window.addEventListener('mousemove', detectDevTool);
+                    //       window.addEventListener('focus', detectDevTool);
+                    //       window.addEventListener('blur', detectDevTool);
+                    //     }
+                    //   }();
+
+
+
+                // LETS DISSAPEAR HUH xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                // ////////////////////////////////////////////////////////////////////////////
+                // ////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5336,6 +5835,403 @@
 ///////////////////////////////////////////////////////////////////////////////
 // EVENTS AND CLICKERS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ///////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // CHANGE PAGE LANGUAGE ---------------------------------------------------
+    // ////////////////////////////////////////////////////////////////////////
+
+
+        selectLanguageDropDown.addEventListener("change", function(){
+
+            console.log("CHANGED...");
+
+            checkForSongElementTwo();
+            checkForSongElementThree();
+            checkForSongElementFour();
+            checkForSongElementFive();
+
+            
+            checkForSubmitButtonElement();
+
+                // LIST ALL VARIABLES FOR LANGUAGE CHANGE /////////////////
+                // ////////////////////////////////////////////////////////
+
+                    let translateTo = selectTag[0].value;
+
+                        // GET CURRENT LANGUAGE FOR STORAGE ///////////////
+                        // ///////////////////////////////////////////////
+
+                            var currentLanguage = "en-US";
+
+
+                        // CHECK WHICH LANGUGE CODE IS SELECTED ----------
+                        // ///////////////////////////////////////////////
+
+                            // ENGLISH SELECTED **************************
+                            // ///////////////////////////////////////////
+
+                                if ( translateTo == "en-US" ) {
+
+                                    // GET TRANSLATOR API URL ////////////////////////////////
+                                    // ///////////////////////////////////////////////////////
+
+                                        // CHECK TO SEE IF LNAGUAGES ARE THE SAME -----------
+                                        // //////////////////////////////////////////////////
+
+                                            if ( translateTo == currentLanguage ) {
+
+                                                console.log("HEYYYYYY wait a minute...");
+
+                                            } else {
+                
+                                                let apiURLForEnglish = `https://api.mymemory.translated.net/get?q=${cornerHostComment.textContent}&langpair=${currentLanguage}|${translateTo}`;
+
+                                                    // IMPLEMENT TRANSLATION --------------------------
+                                                    // ////////////////////////////////////////////////
+
+                                                        fetch(apiURLForEnglish).then(res => res.json()).then(data => {
+                                                            console.log(data);
+
+                                                            cornerHostComment.textContent = "Using super powers, and crossing dimmensions for translation...";
+
+                                                            setTimeout(() => {
+    
+                                                                cornerHostComment.textContent = data.responseData.translatedText;
+    
+                                                            }, 500);
+
+                                                        });
+
+
+                                                    // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                                    // ////////////////////////////////////////////////
+
+                                                        currentLanguage = translateTo;
+
+                                                        console.log("ENGLISH SELECTED");
+
+                                                            // CHANGE ELEMENTS ON PAGE TO LANG
+                                                            // ///////////////////////////////
+
+                                                                // FININTE ELEMENTS TO PAGE >>
+                                                                // ///////////////////////////
+
+                                                                    headlineText.textContent = "with love from";
+                                                                    // hostIntro
+
+                                                                    musicHeadliner.textContent = "music";
+                                                                    commentsHeadliner.textContent = "que's";
+
+                                                                    commentIntroHeadliner.textContent = "Be heard.";
+                                                                    commentIntroBody.textContent = "Got some songs you think peeps would enjoy? List your top 5 songs in the comments, and you could be next weeks corner hoster.";
+
+                                                                    commentBoxIntroHeadliner.textContent = "comments ahoy";
+
+                                                                    commentCreateUserName.setAttribute("placeholder", "create a username");
+                                                                    // commentCreateDescriptionText
+                                                                    commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "say hello hi to your listeners and give em some love...");
+
+
+
+                                                                    commentCreateSongOneHeadliner.textContent = "song one";
+                                                                    commentCreateSongOneArtistName.setAttribute("placeholder","artist name");
+                                                                    commentCreateSongOneSongtName.setAttribute("placeholder","song name");
+
+
+
+                                                                    commentCreateAddSongButton.textContent = "add song";
+
+
+                                                                    termsAndConditions.textContent = "terms and conditions not loved.";
+
+
+                                            }
+
+
+
+                                } 
+
+
+
+                            // ENGLISH SELECTED **************************
+                            // ///////////////////////////////////////////
+                                
+                                else if ( translateTo == "af" ) {
+
+                                    // GET TRANSLATOR API URL ////////////////////////////////
+                                    // ///////////////////////////////////////////////////////
+
+                                        // CHECK TO SEE IF LNAGUAGES ARE THE SAME -----------
+                                        // //////////////////////////////////////////////////
+
+                                            if ( translateTo == currentLanguage ) {
+
+                                                console.log("HEYYYYYY wait a minute...");
+
+                                            } else {
+
+                
+                                                let apiURLForAfrikaans = `https://api.mymemory.translated.net/get?q=${cornerHostComment.textContent}&langpair=${currentLanguage}|${translateTo}`;
+
+                                                // IMPLEMENT TRANSLATION --------------------------
+                                                // ////////////////////////////////////////////////
+
+                                                    fetch(apiURLForAfrikaans).then(res => res.json()).then(data => {
+                                                        console.log(data);
+
+                                                        cornerHostComment.textContent = "Ek gebruik my superkragte en kruis dimensies vir vertaling...";
+
+                                                        setTimeout(() => {
+
+                                                            cornerHostComment.textContent = data.responseData.translatedText;
+
+                                                        }, 500);
+
+                                                    });
+
+
+                                                // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                                // ////////////////////////////////////////////////
+
+                                                    currentLanguage = translateTo;
+
+                                                    console.log("AFRIKAANS SELECTED");
+
+                                                    // CHANGE ELEMENTS ON PAGE TO LANG
+                                                    // ///////////////////////////////
+
+                                                        // FININTE ELEMENTS TO PAGE >>
+                                                        // ///////////////////////////
+
+                                                            headlineText.textContent = "met liefde van";
+                                                            // hostIntro
+
+                                                            musicHeadliner.textContent = "musiek";
+                                                            commentsHeadliner.textContent = "opinie";
+
+                                                            commentIntroHeadliner.textContent = "Word gehoor.";
+                                                            commentIntroBody.textContent = "Het jy 'n paar liedjies wat jy dink mense sal geniet? Lys jou top 5 liedjies in die kommentaar, en jy kan volgende week se hoekgasheer wees.";
+
+                                                            commentBoxIntroHeadliner.textContent = "kommentaar vorentoe";
+
+                                                            commentCreateUserName.setAttribute("placeholder", "skep 'n gebruikersnaam");
+                                                            // commentCreateDescriptionText
+                                                            commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "sê hallo vir jou luisteraars en gee hulle 'n bietjie liefde...");
+
+
+
+                                                            commentCreateSongOneHeadliner.textContent = "liedjie een";
+                                                            commentCreateSongOneArtistName.setAttribute("placeholder","kunstenaar naam");
+                                                            commentCreateSongOneSongtName.setAttribute("placeholder","liedjie naam");
+
+
+
+                                                            commentCreateAddSongButton.textContent = "oeg liedjie by";
+
+
+                                                            termsAndConditions.textContent = "bepalings en voorwaardes nie geliefd nie.";
+
+                                                
+                                            }
+
+                                }
+
+
+
+                            // ARABIC SELECTED ***************************
+                            // ///////////////////////////////////////////
+                                
+                                else if ( translateTo == "ar-SA" ) {
+
+                                    // GET TRANSLATOR API URL ////////////////////////////////
+                                    // ///////////////////////////////////////////////////////
+
+                                        // CHECK TO SEE IF LNAGUAGES ARE THE SAME -----------
+                                        // //////////////////////////////////////////////////
+
+                                            if ( translateTo == currentLanguage ) {
+
+                                                console.log("HEYYYYYY wait a minute...");
+
+                                            } else {
+                                                
+                
+                                                let apiURLForArabic = `https://api.mymemory.translated.net/get?q=${cornerHostComment.textContent}&langpair=${currentLanguage}|${translateTo}`;
+
+                                                // IMPLEMENT TRANSLATION --------------------------
+                                                // ////////////////////////////////////////////////
+
+                                                    fetch(apiURLForArabic).then(res => res.json()).then(data => {
+                                                        console.log(data);
+
+                                                        cornerHostComment.textContent = "أنا أستخدم قوتي الخارقة، وأتجاوز الأبعاد للترجمة...";
+
+                                                        setTimeout(() => {
+
+                                                            cornerHostComment.textContent = data.responseData.translatedText;
+
+                                                        }, 500);
+
+                                                    });
+
+
+                                                // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                                // ////////////////////////////////////////////////
+
+                                                    currentLanguage = translateTo;
+
+                                                    console.log("ARABIC SELECTED");
+
+                                                    // CHANGE ELEMENTS ON PAGE TO LANG
+                                                    // ///////////////////////////////
+
+                                                        // FININTE ELEMENTS TO PAGE >>
+                                                        // ///////////////////////////
+
+                                                            headlineText.textContent = "بالحب من";
+                                                            // hostIntro
+
+                                                            musicHeadliner.textContent = "موسيقى";
+                                                            commentsHeadliner.textContent = "تعليقات";
+
+                                                            commentIntroHeadliner.textContent = "أن تسمع.";
+                                                            commentIntroBody.textContent = "هل لديك بعض الأغاني التي تعتقد أن الناس سيستمتعون بها؟ قم بإدراج أفضل خمس أغاني لديك في التعليقات، ويمكن أن تكون المضيف الرئيسي في الأسبوع المقبل.";
+
+                                                            commentBoxIntroHeadliner.textContent = "التعليقات المقبلة";
+
+                                                            commentCreateUserName.setAttribute("placeholder", "انشي اسم مستخدم");
+                                                            // commentCreateDescriptionText
+                                                            commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "قل مرحباً لمستمعيك وامنحهم بعض الحب ...");
+
+
+
+                                                            commentCreateSongOneHeadliner.textContent = "أغنية واحدة";
+                                                            commentCreateSongOneArtistName.setAttribute("placeholder","اسم فنان");
+                                                            commentCreateSongOneSongtName.setAttribute("placeholder","إسم الأغنية");
+
+
+
+                                                            commentCreateAddSongButton.textContent = "إضافة أغنية";
+
+
+                                                            termsAndConditions.textContent = "الشروط والأحكام لا أحب.";
+
+                                                
+                                            }
+
+                                }
+
+
+
+                            // DEFAULT STATE REVERT **********************
+                            // ///////////////////////////////////////////
+                                
+                                else {
+
+                                    console.log("DEFAULT SELECTED");
+
+                                    // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                    // ////////////////////////////////////////////////
+
+                                        // CHECK TO SEE IF LNAGUAGES ARE THE SAME -----------
+                                        // //////////////////////////////////////////////////
+
+                                            if ( translateTo == currentLanguage ) {
+
+                                                console.log("HEYYYYYY wait a minute...");
+
+                                            } else {
+
+
+                                                // CHANGE ELEMENTS ON PAGE TO LANG
+                                                // ///////////////////////////////
+
+                                                    // FININTE ELEMENTS TO PAGE >>
+                                                    // ///////////////////////////
+
+                                                        headlineText.textContent = "with love from";
+                                                        // hostIntro
+
+                                                        musicHeadliner.textContent = "music";
+                                                        commentsHeadliner.textContent = "que's";
+
+                                                        commentIntroHeadliner.textContent = "Be heard.";
+                                                        commentIntroBody.textContent = "Got some songs you think peeps would enjoy? List your top 5 songs in the comments, and you could be next weeks corner hoster.";
+
+                                                        commentBoxIntroHeadliner.textContent = "comments ahoy";
+
+                                                        commentCreateUserName.setAttribute("placeholder", "create a username");
+                                                        // commentCreateDescriptionText
+                                                        commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "say hello hi to your listeners and give em some love...");
+
+
+
+                                                        commentCreateSongOneHeadliner.textContent = "song one";
+                                                        commentCreateSongOneArtistName.value = "artist name";
+                                                        commentCreateSongOneSongtName.value = "song name";
+
+
+
+                                                        commentCreateAddSongButton.textContent = "add song";
+
+
+                                                        termsAndConditions.textContent = "terms and conditions not loved.";
+
+                                                
+                                            }
+
+
+                                    
+
+                                }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // MUSIC SECTION EVENTS AND CLICKERS --------------------------------------

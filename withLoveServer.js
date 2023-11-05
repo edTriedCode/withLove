@@ -5,6 +5,7 @@
     const mongoose = require("mongoose");
     const bodyParser = require("body-parser");
     require('dotenv').config();
+    const ejs = require("ejs");
 
 // INITIALIZE APP EXPRESS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////  
@@ -58,82 +59,96 @@
 
 
 
-                // RUN FOR LOOP TO CHECK NUMBER OF SONG BOXES xxxxxxxxxxxxxxxxx
-                // ////////////////////////////////////////////////////////////
+                
+                // CREATE SCHEMA FOR USERNAMES AND COMMENTS ---------------
+                // ////////////////////////////////////////////////////////
+
+                    const uNsSchemaMainSongBoxOne = {
+
+                        lovinUsername: String,
+                        lovingDescription: String,
+                        lovinCommentsArtistRecommendationOne: String,
+                        lovinCommentsSongRecommendationOne: String
+                        
+                    };
+
+
+                    const uNsSchemaMainSongBoxTwo = {
+
+                        lovinUsername: String,
+                        lovingDescription: String,
+                        lovinCommentsArtistRecommendationOne: String,
+                        lovinCommentsSongRecommendationOne: String,
+                        lovinCommentsArtistRecommendationTwo: String,
+                        lovinCommentsSongRecommendationTwo: String
+                        
+                    };
+
+
+                    const uNsSchemaMainSongBoxThree = {
+
+                        lovinUsername: String,
+                        lovingDescription: String,
+                        lovinCommentsArtistRecommendationOne: String,
+                        lovinCommentsSongRecommendationOne: String,
+                        lovinCommentsArtistRecommendationTwo: String,
+                        lovinCommentsSongRecommendationTwo: String,
+                        lovinCommentsArtistRecommendationThree: String,
+                        lovinCommentsSongRecommendationThree: String
+                        
+                    };
+
+
+                    const uNsSchemaMainSongBoxFour = {
+
+                        lovinUsername: String,
+                        lovingDescription: String,
+                        lovinCommentsArtistRecommendationOne: String,
+                        lovinCommentsSongRecommendationOne: String,
+                        lovinCommentsArtistRecommendationTwo: String,
+                        lovinCommentsSongRecommendationTwo: String,
+                        lovinCommentsArtistRecommendationThree: String,
+                        lovinCommentsSongRecommendationThree: String,
+                        lovinCommentsArtistRecommendationFour: String,
+                        lovinCommentsSongRecommendationFour: String
+                        
+                    };
+
+
+                    const uNsSchemaMainSongBoxFive = {
+
+                        lovinUsername: String,
+                        lovingDescription: String,
+                        lovinCommentsArtistRecommendationOne: String,
+                        lovinCommentsSongRecommendationOne: String,
+                        lovinCommentsArtistRecommendationTwo: String,
+                        lovinCommentsSongRecommendationTwo: String,
+                        lovinCommentsArtistRecommendationThree: String,
+                        lovinCommentsSongRecommendationThree: String,
+                        lovinCommentsArtistRecommendationFour: String,
+                        lovinCommentsSongRecommendationFour: String,
+                        lovinCommentsArtistRecommendationFive: String,
+                        lovinCommentsSongRecommendationFive: String
+                        
+                    };
 
 
 
-                    // CREATE SCHEMA FOR USERNAMES AND COMMENTS ---------------
-                    // ////////////////////////////////////////////////////////
-
-                        const uNsSchemaMainSongBoxOne = {
-
-                            lovinUsername: String,
-                            lovingDescription: String,
-                            lovinCommentsArtistRecommendationOne: String,
-                            lovinCommentsSongRecommendationOne: String
-                            
-                        };
+                
+                // CREATE SCHEMA FOR SELECTED USERNAMES AND DESCRIPTION ---
+                // ////////////////////////////////////////////////////////
 
 
-                        const uNsSchemaMainSongBoxTwo = {
+                    const userCommentsRetrieve = {
 
-                            lovinUsername: String,
-                            lovingDescription: String,
-                            lovinCommentsArtistRecommendationOne: String,
-                            lovinCommentsSongRecommendationOne: String,
-                            lovinCommentsArtistRecommendationTwo: String,
-                            lovinCommentsSongRecommendationTwo: String
-                            
-                        };
+                        lovinUsernameSelected: String,
+                        lovingDescriptionSelected: String,
+
+                    }
 
 
-                        const uNsSchemaMainSongBoxThree = {
-
-                            lovinUsername: String,
-                            lovingDescription: String,
-                            lovinCommentsArtistRecommendationOne: String,
-                            lovinCommentsSongRecommendationOne: String,
-                            lovinCommentsArtistRecommendationTwo: String,
-                            lovinCommentsSongRecommendationTwo: String,
-                            lovinCommentsArtistRecommendationThree: String,
-                            lovinCommentsSongRecommendationThree: String
-                            
-                        };
-
-
-                        const uNsSchemaMainSongBoxFour = {
-
-                            lovinUsername: String,
-                            lovingDescription: String,
-                            lovinCommentsArtistRecommendationOne: String,
-                            lovinCommentsSongRecommendationOne: String,
-                            lovinCommentsArtistRecommendationTwo: String,
-                            lovinCommentsSongRecommendationTwo: String,
-                            lovinCommentsArtistRecommendationThree: String,
-                            lovinCommentsSongRecommendationThree: String,
-                            lovinCommentsArtistRecommendationFour: String,
-                            lovinCommentsSongRecommendationFour: String
-                            
-                        };
-
-
-                        const uNsSchemaMainSongBoxFive = {
-
-                            lovinUsername: String,
-                            lovingDescription: String,
-                            lovinCommentsArtistRecommendationOne: String,
-                            lovinCommentsSongRecommendationOne: String,
-                            lovinCommentsArtistRecommendationTwo: String,
-                            lovinCommentsSongRecommendationTwo: String,
-                            lovinCommentsArtistRecommendationThree: String,
-                            lovinCommentsSongRecommendationThree: String,
-                            lovinCommentsArtistRecommendationFour: String,
-                            lovinCommentsSongRecommendationFour: String,
-                            lovinCommentsArtistRecommendationFive: String,
-                            lovinCommentsSongRecommendationFive: String
-                            
-                        };
+    
+                    var selectedComments = mongoose.model("lovelyselectedcomments", userCommentsRetrieve);
 
 
 
@@ -156,9 +171,26 @@
 
             app.get("/", function(req, res){
 
-                res.render("index", {
+                setTimeout(()=> {
 
-                });
+                    mongoConnectWithLoveMainBase();
+
+                    selectedComments.find().then((selectedCriteria) => {
+    
+                        res.render("index", {
+    
+                            selected: selectedCriteria
+    
+                        });
+                        
+                    })
+                    .catch((err) => {
+    
+                        console.log(err);
+    
+                    })
+
+                }, 2000);
 
 
             });
