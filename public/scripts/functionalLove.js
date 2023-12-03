@@ -11,6 +11,11 @@
             var selectTag = document.querySelectorAll("select");
             var selectLanguageDropDown = document.querySelector(".withLoveLanguageSelectorDropDownContainer");
 
+                // GET CURRENT LANGUAGE FOR STORAGE ///////////////
+                // ///////////////////////////////////////////////
+
+                    var currentLanguage = "en-US";
+
                 // GET TEXT TO TRANSLATE //////////////////////////////////////
                 // ////////////////////////////////////////////////////////////
 
@@ -389,31 +394,6 @@
                         var commentsElementsFormContainer = document.querySelector(".submitCommentsUserCommentSubmitButton");
                         var submitButtonCreate = document.createElement("button");
                         submitButtonCreate.className = "submitCommentsUserCommentSubmitButtonActual";
-
-                            // CREATE ATTRIBUTES FOR BUTTON ------------------
-                            // ///////////////////////////////////////////////
-
-
-
-                                    // CHECK LANGUAGE OF PAGE AND CHANGE ////////
-                                    // //////////////////////////////////////////
-
-                                        if ( selectTag[0].value == "af" ) {
-
-                                            submitButtonCreate.setAttribute("type", "submit");
-                                            submitButtonCreate.textContent = "indien";
-
-                                        } else if ( selectTag[0].value == "en-US" ) {
-
-                                            submitButtonCreate.setAttribute("type", "submit");
-                                            submitButtonCreate.textContent = "submit";
-
-                                        } else if ( selectTag[0].value == "ar-SA" ) {
-
-                                            submitButtonCreate.setAttribute("type", "submit");
-                                            submitButtonCreate.textContent = "يُقدِّم";
-
-                                        }
 
 
 
@@ -4754,78 +4734,78 @@
                 // ////////////////////////////////////////////////////////////////////////////
 
                 
-                    // bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
+                    bodyControlField.setAttribute("oncontextmenu", ("return" + " " + false));
 
 
-                    // document.onkeydown = function (e) {
+                    document.onkeydown = function (e) {
     
-                    //     // disable F12 key
-                    //     if(e.keyCode == 123) {
+                        // disable F12 key
+                        if(e.keyCode == 123) {
 
-                    //         location.reload();
-                    //         return false;
+                            location.reload();
+                            return false;
 
-                    //     }
+                        }
                 
-                    //     // disable I key
-                    //     if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+                        // disable I key
+                        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
 
-                    //         location.reload();
-                    //         return false;
+                            location.reload();
+                            return false;
                             
-                    //     }
+                        }
                 
-                    //     // disable J key
-                    //     if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                        // disable J key
+                        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
 
-                    //         location.reload();
-                    //         return false;
+                            location.reload();
+                            return false;
                             
-                    //     }
+                        }
                 
-                    //     // disable U key
-                    //     if(e.ctrlKey && e.keyCode == 85) {
+                        // disable U key
+                        if(e.ctrlKey && e.keyCode == 85) {
 
-                    //         location.reload();
-                    //         return false;
+                            location.reload();
+                            return false;
 
-                    //     }
-                    // }
-
-
-                    // document.addEventListener('contextmenu', event => event.preventDefault());
+                        }
+                    }
 
 
-                    // !function() {
-                    //     function detectDevTool(allow) {
-                    //       if(isNaN(+allow)) allow = 100;
-                    //       var start = +new Date(); // Validation of built-in Object tamper prevention.
-                    //       debugger;
-                    //       var end = +new Date(); // Validates too.
-                    //       if(isNaN(start) || isNaN(end) || end - start > allow) {
-                    //         // input your code here when devtools detected.
+                    document.addEventListener('contextmenu', event => event.preventDefault());
 
-                    //         location.reload();
-                    //       }
-                    //     }
-                    //     if(window.attachEvent) {
-                    //       if (document.readyState === "complete" || document.readyState === "interactive") {
-                    //           detectDevTool();
-                    //         window.attachEvent('onresize', detectDevTool);
-                    //         window.attachEvent('onmousemove', detectDevTool);
-                    //         window.attachEvent('onfocus', detectDevTool);
-                    //         window.attachEvent('onblur', detectDevTool);
-                    //       } else {
-                    //           setTimeout(argument.callee, 0);
-                    //       }
-                    //     } else {
-                    //       window.addEventListener('load', detectDevTool);
-                    //       window.addEventListener('resize', detectDevTool);
-                    //       window.addEventListener('mousemove', detectDevTool);
-                    //       window.addEventListener('focus', detectDevTool);
-                    //       window.addEventListener('blur', detectDevTool);
-                    //     }
-                    //   }();
+
+                    !function() {
+                        function detectDevTool(allow) {
+                          if(isNaN(+allow)) allow = 100;
+                          var start = +new Date(); // Validation of built-in Object tamper prevention.
+                          debugger;
+                          var end = +new Date(); // Validates too.
+                          if(isNaN(start) || isNaN(end) || end - start > allow) {
+                            // input your code here when devtools detected.
+
+                            location.reload();
+                          }
+                        }
+                        if(window.attachEvent) {
+                          if (document.readyState === "complete" || document.readyState === "interactive") {
+                              detectDevTool();
+                            window.attachEvent('onresize', detectDevTool);
+                            window.attachEvent('onmousemove', detectDevTool);
+                            window.attachEvent('onfocus', detectDevTool);
+                            window.attachEvent('onblur', detectDevTool);
+                          } else {
+                              setTimeout(argument.callee, 0);
+                          }
+                        } else {
+                          window.addEventListener('load', detectDevTool);
+                          window.addEventListener('resize', detectDevTool);
+                          window.addEventListener('mousemove', detectDevTool);
+                          window.addEventListener('focus', detectDevTool);
+                          window.addEventListener('blur', detectDevTool);
+                        }
+                      }();
 
 
 
@@ -5026,6 +5006,38 @@
 
 
                                 commentsElementsFormContainer.appendChild(submitButtonCreate);
+                                
+
+                                // CREATE ATTRIBUTES FOR BUTTON ------------------
+                                // ///////////////////////////////////////////////
+    
+    
+    
+                                        // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                        // //////////////////////////////////////////
+    
+                                            if ( currentLanguage == "af" ) {
+    
+                                                submitButtonCreate.setAttribute("type", "submit");
+                                                submitButtonCreate.setAttribute("value", "indien");
+    
+                                                submitButtonCreate.textContent = "indien";
+    
+                                            } else if ( currentLanguage == "en-US" ) {
+    
+                                                submitButtonCreate.setAttribute("type", "submit");
+                                                submitButtonCreate.setAttribute("value", "submit");
+    
+                                                submitButtonCreate.textContent = "submit";
+    
+                                            } else if ( currentLanguage == "ar-SA" ) {
+    
+                                                submitButtonCreate.setAttribute("type", "submit");
+                                                submitButtonCreate.setAttribute("value", "يُقدِّم");
+    
+                                                submitButtonCreate.textContent = "يُقدِّم";
+    
+                                            }
 
                                 submitButtonClassName = "submitCommentsUserCommentSubmitButtonActual";
 
@@ -5883,11 +5895,6 @@
 
                     let translateTo = selectTag[0].value;
 
-                        // GET CURRENT LANGUAGE FOR STORAGE ///////////////
-                        // ///////////////////////////////////////////////
-
-                            var currentLanguage = "en-US";
-
 
                         // CHECK WHICH LANGUGE CODE IS SELECTED ----------
                         // ///////////////////////////////////////////////
@@ -5931,7 +5938,7 @@
                                                     // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
                                                     // ////////////////////////////////////////////////
 
-                                                        currentLanguage = translateTo;
+                                                        currentLanguage = "en-US";
 
                                                         console.log("ENGLISH SELECTED");
 
@@ -5970,6 +5977,21 @@
                                                                     termsAndConditions.textContent = "terms and conditions not loved.";
 
 
+
+                                                                    // FORCE CHANGE SUBMIT BUTTON 
+                                                                    // //////////////////////////
+
+                                                                        if (document.querySelector(".submitCommentsUserCommentSubmitButtonActual") == undefined) {
+
+                                                                            console.log("no button here...");
+
+                                                                        } else {
+
+                                                                            document.querySelector(".submitCommentsUserCommentSubmitButtonActual").textContent = "submit";
+
+                                                                        };
+
+
                                             }
 
 
@@ -5978,7 +6000,7 @@
 
 
 
-                            // ENGLISH SELECTED **************************
+                            // AFRIKAANS SELECTED ************************
                             // ///////////////////////////////////////////
                                 
                                 else if ( translateTo == "af" ) {
@@ -6010,51 +6032,66 @@
 
                                                             cornerHostComment.textContent = data.responseData.translatedText;
 
+
+                                                            // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                                            // ////////////////////////////////////////////////
+            
+                                                                currentLanguage = "af";
+            
+                                                                console.log("AFRIKAANS SELECTED");
+            
+                                                                // CHANGE ELEMENTS ON PAGE TO LANG
+                                                                // ///////////////////////////////
+            
+                                                                    // FININTE ELEMENTS TO PAGE >>
+                                                                    // ///////////////////////////
+            
+                                                                        headlineText.textContent = "met liefde van";
+                                                                        // hostIntro
+            
+                                                                        musicHeadliner.textContent = "musiek";
+                                                                        commentsHeadliner.textContent = "opinie";
+            
+                                                                        commentIntroHeadliner.textContent = "Word gehoor.";
+                                                                        commentIntroBody.textContent = "Het jy 'n paar liedjies wat jy dink mense sal geniet? Lys jou top 5 liedjies in die kommentaar, en jy kan volgende week se hoekgasheer wees.";
+            
+                                                                        commentBoxIntroHeadliner.textContent = "kommentaar vorentoe";
+            
+                                                                        commentCreateUserName.setAttribute("placeholder", "skep 'n gebruikersnaam");
+                                                                        // commentCreateDescriptionText
+                                                                        commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "sê hallo vir jou luisteraars en gee hulle 'n bietjie liefde...");
+            
+            
+            
+                                                                        commentCreateSongOneHeadliner.textContent = "liedjie een";
+                                                                        commentCreateSongOneArtistName.setAttribute("placeholder","kunstenaar naam");
+                                                                        commentCreateSongOneSongtName.setAttribute("placeholder","liedjie naam");
+            
+            
+            
+                                                                        commentCreateAddSongButton.textContent = "oeg liedjie by";
+            
+            
+                                                                        termsAndConditions.textContent = "bepalings en voorwaardes nie geliefd nie.";
+
+
+
+                                                                        // FORCE CHANGE SUBMIT BUTTON 
+                                                                        // //////////////////////////
+
+                                                                            if (document.querySelector(".submitCommentsUserCommentSubmitButtonActual") == undefined) {
+
+                                                                                console.log("no button here...");
+
+                                                                            } else {
+
+                                                                                document.querySelector(".submitCommentsUserCommentSubmitButtonActual").textContent = "indien";
+
+                                                                            };
+
                                                         }, 500);
 
                                                     });
-
-
-                                                // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
-                                                // ////////////////////////////////////////////////
-
-                                                    currentLanguage = translateTo;
-
-                                                    console.log("AFRIKAANS SELECTED");
-
-                                                    // CHANGE ELEMENTS ON PAGE TO LANG
-                                                    // ///////////////////////////////
-
-                                                        // FININTE ELEMENTS TO PAGE >>
-                                                        // ///////////////////////////
-
-                                                            headlineText.textContent = "met liefde van";
-                                                            // hostIntro
-
-                                                            musicHeadliner.textContent = "musiek";
-                                                            commentsHeadliner.textContent = "opinie";
-
-                                                            commentIntroHeadliner.textContent = "Word gehoor.";
-                                                            commentIntroBody.textContent = "Het jy 'n paar liedjies wat jy dink mense sal geniet? Lys jou top 5 liedjies in die kommentaar, en jy kan volgende week se hoekgasheer wees.";
-
-                                                            commentBoxIntroHeadliner.textContent = "kommentaar vorentoe";
-
-                                                            commentCreateUserName.setAttribute("placeholder", "skep 'n gebruikersnaam");
-                                                            // commentCreateDescriptionText
-                                                            commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "sê hallo vir jou luisteraars en gee hulle 'n bietjie liefde...");
-
-
-
-                                                            commentCreateSongOneHeadliner.textContent = "liedjie een";
-                                                            commentCreateSongOneArtistName.setAttribute("placeholder","kunstenaar naam");
-                                                            commentCreateSongOneSongtName.setAttribute("placeholder","liedjie naam");
-
-
-
-                                                            commentCreateAddSongButton.textContent = "oeg liedjie by";
-
-
-                                                            termsAndConditions.textContent = "bepalings en voorwaardes nie geliefd nie.";
 
                                                 
                                             }
@@ -6095,51 +6132,66 @@
 
                                                             cornerHostComment.textContent = data.responseData.translatedText;
 
+
+                                                            // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
+                                                            // ////////////////////////////////////////////////
+            
+                                                                currentLanguage = "ar-SA";
+            
+                                                                console.log("ARABIC SELECTED");
+            
+                                                                // CHANGE ELEMENTS ON PAGE TO LANG
+                                                                // ///////////////////////////////
+            
+                                                                    // FININTE ELEMENTS TO PAGE >>
+                                                                    // ///////////////////////////
+            
+                                                                        headlineText.textContent = "بالحب من";
+                                                                        // hostIntro
+            
+                                                                        musicHeadliner.textContent = "موسيقى";
+                                                                        commentsHeadliner.textContent = "تعليقات";
+            
+                                                                        commentIntroHeadliner.textContent = "أن تسمع.";
+                                                                        commentIntroBody.textContent = "هل لديك بعض الأغاني التي تعتقد أن الناس سيستمتعون بها؟ قم بإدراج أفضل خمس أغاني لديك في التعليقات، ويمكن أن تكون المضيف الرئيسي في الأسبوع المقبل.";
+            
+                                                                        commentBoxIntroHeadliner.textContent = "التعليقات المقبلة";
+            
+                                                                        commentCreateUserName.setAttribute("placeholder", "انشي اسم مستخدم");
+                                                                        // commentCreateDescriptionText
+                                                                        commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "قل مرحباً لمستمعيك وامنحهم بعض الحب ...");
+            
+            
+            
+                                                                        commentCreateSongOneHeadliner.textContent = "أغنية واحدة";
+                                                                        commentCreateSongOneArtistName.setAttribute("placeholder","اسم فنان");
+                                                                        commentCreateSongOneSongtName.setAttribute("placeholder","إسم الأغنية");
+            
+            
+            
+                                                                        commentCreateAddSongButton.textContent = "إضافة أغنية";
+            
+            
+                                                                        termsAndConditions.textContent = "الشروط والأحكام لا أحب.";
+
+
+
+                                                                        // FORCE CHANGE SUBMIT BUTTON 
+                                                                        // //////////////////////////
+
+                                                                            if (document.querySelector(".submitCommentsUserCommentSubmitButtonActual") == undefined) {
+
+                                                                                console.log("no button here...");
+
+                                                                            } else {
+
+                                                                                document.querySelector(".submitCommentsUserCommentSubmitButtonActual").textContent = "يُقدِّم";
+
+                                                                            };
+
                                                         }, 500);
 
                                                     });
-
-
-                                                // THEN UPDATE CURRENT LANGUAGE TO NEW CURRENT LANG
-                                                // ////////////////////////////////////////////////
-
-                                                    currentLanguage = translateTo;
-
-                                                    console.log("ARABIC SELECTED");
-
-                                                    // CHANGE ELEMENTS ON PAGE TO LANG
-                                                    // ///////////////////////////////
-
-                                                        // FININTE ELEMENTS TO PAGE >>
-                                                        // ///////////////////////////
-
-                                                            headlineText.textContent = "بالحب من";
-                                                            // hostIntro
-
-                                                            musicHeadliner.textContent = "موسيقى";
-                                                            commentsHeadliner.textContent = "تعليقات";
-
-                                                            commentIntroHeadliner.textContent = "أن تسمع.";
-                                                            commentIntroBody.textContent = "هل لديك بعض الأغاني التي تعتقد أن الناس سيستمتعون بها؟ قم بإدراج أفضل خمس أغاني لديك في التعليقات، ويمكن أن تكون المضيف الرئيسي في الأسبوع المقبل.";
-
-                                                            commentBoxIntroHeadliner.textContent = "التعليقات المقبلة";
-
-                                                            commentCreateUserName.setAttribute("placeholder", "انشي اسم مستخدم");
-                                                            // commentCreateDescriptionText
-                                                            commentCreateDescriptionPlaceHolder.setAttribute("placeholder", "قل مرحباً لمستمعيك وامنحهم بعض الحب ...");
-
-
-
-                                                            commentCreateSongOneHeadliner.textContent = "أغنية واحدة";
-                                                            commentCreateSongOneArtistName.setAttribute("placeholder","اسم فنان");
-                                                            commentCreateSongOneSongtName.setAttribute("placeholder","إسم الأغنية");
-
-
-
-                                                            commentCreateAddSongButton.textContent = "إضافة أغنية";
-
-
-                                                            termsAndConditions.textContent = "الشروط والأحكام لا أحب.";
 
                                                 
                                             }
@@ -6796,6 +6848,38 @@
                     
                     
                                                     commentsElementsFormContainer.appendChild(submitButtonCreate);
+                                
+
+                                                    // CREATE ATTRIBUTES FOR BUTTON ------------------
+                                                    // ///////////////////////////////////////////////
+                        
+                        
+                        
+                                                            // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                                            // //////////////////////////////////////////
+                        
+                                                                if ( currentLanguage == "af" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "indien");
+                        
+                                                                    submitButtonCreate.textContent = "indien";
+                        
+                                                                } else if ( currentLanguage == "en-US" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "submit");
+                        
+                                                                    submitButtonCreate.textContent = "submit";
+                        
+                                                                } else if ( currentLanguage == "ar-SA" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "يُقدِّم");
+                        
+                                                                    submitButtonCreate.textContent = "يُقدِّم";
+                        
+                                                                }
                     
                                                     submitButtonClassName = "submitCommentsUserCommentSubmitButtonActual";
                     
@@ -6912,6 +6996,38 @@
                     
                     
                                                     commentsElementsFormContainer.appendChild(submitButtonCreate);
+                                
+
+                                                    // CREATE ATTRIBUTES FOR BUTTON ------------------
+                                                    // ///////////////////////////////////////////////
+                        
+                        
+                        
+                                                            // CHECK LANGUAGE OF PAGE AND CHANGE ////////
+                                                            // //////////////////////////////////////////
+                        
+                                                                if ( currentLanguage == "af" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "indien");
+                        
+                                                                    submitButtonCreate.textContent = "indien";
+                        
+                                                                } else if ( currentLanguage == "en-US" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "submit");
+                        
+                                                                    submitButtonCreate.textContent = "submit";
+                        
+                                                                } else if ( currentLanguage == "ar-SA" ) {
+                        
+                                                                    submitButtonCreate.setAttribute("type", "submit");
+                                                                    submitButtonCreate.setAttribute("value", "يُقدِّم");
+                        
+                                                                    submitButtonCreate.textContent = "يُقدِّم";
+                        
+                                                                }
                     
                                                     submitButtonClassName = "submitCommentsUserCommentSubmitButtonActual";
                     
