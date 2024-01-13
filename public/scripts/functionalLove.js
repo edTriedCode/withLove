@@ -883,17 +883,6 @@
 
 
 
-                    
-
-
-        // FOR MONGO ENTRY xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        ///////////////////////////////////////////////////////////////////////
-
-            var mongoEntry = document.querySelector(".makeMongoEntryInputField");
-
-
-
-
 
 
 
@@ -4971,8 +4960,6 @@
 
                             commentsElementsFormContainer.removeChild(submitButtonCreate);
 
-                            mongoEntry.value = "";
-
 
                                 // REMOVE STYLES TO MAIN CONTAINER xxxxxx
                                 // //////////////////////////////////////
@@ -4998,8 +4985,6 @@
 
                             commentsElementsFormContainer.removeChild(submitButtonCreate);
 
-                            mongoEntry.value = "";
-
 
                                 // REMOVE STYLES TO MAIN CONTAINER xxxxxx
                                 // //////////////////////////////////////
@@ -5021,8 +5006,6 @@
 
 
                                 commentsElementsFormContainer.appendChild(submitButtonCreate);
-
-                                mongoEntry.value = "Yv3yu00qePkUC0v4";
                                 
 
                                 // CREATE ATTRIBUTES FOR BUTTON ------------------
@@ -6807,8 +6790,6 @@
             
                                             commentsElementsFormContainer.removeChild(submitButtonCreate);
 
-                                            mongoEntry.value = "";
-
 
                                             // REMOVE STYLES TO MAIN CONTAINER xxxxxx
                                             // //////////////////////////////////////
@@ -6837,8 +6818,6 @@
             
             
                                             commentsElementsFormContainer.removeChild(submitButtonCreate);
-
-                                            mongoEntry.value = "";
 
 
                                             // REMOVE STYLES TO MAIN CONTAINER xxxxxx
@@ -6869,8 +6848,6 @@
                     
                     
                                                     commentsElementsFormContainer.appendChild(submitButtonCreate);
-
-                                                    mongoEntry.value = "Yv3yu00qePkUC0v4";
                                 
 
                                                     // CREATE ATTRIBUTES FOR BUTTON ------------------
@@ -6961,8 +6938,6 @@
             
                                             commentsElementsFormContainer.removeChild(submitButtonCreate);
 
-                                            mongoEntry.value = "";
-
 
                                             // REMOVE STYLES TO MAIN CONTAINER xxxxxx
                                             // //////////////////////////////////////
@@ -6991,8 +6966,6 @@
             
             
                                             commentsElementsFormContainer.removeChild(submitButtonCreate);
-
-                                            mongoEntry.value = "";
 
 
                                             // REMOVE STYLES TO MAIN CONTAINER xxxxxx
@@ -7023,8 +6996,6 @@
                     
                     
                                                     commentsElementsFormContainer.appendChild(submitButtonCreate);
-
-                                                    mongoEntry.value = "Yv3yu00qePkUC0v4";
                                 
 
                                                     // CREATE ATTRIBUTES FOR BUTTON ------------------
