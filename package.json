@@ -2,7 +2,7 @@
   "name": "withlove",
   "version": "1.0.0",
   "description": "love you and your eardrums",
-  "main": "withLoveServer.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
