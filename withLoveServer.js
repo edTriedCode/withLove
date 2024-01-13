@@ -26,7 +26,7 @@
 // PORT NUMBER xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
 
-    const portListener = 3000;
+    const portListener = 5000;
 
 // BRING IN STATICS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
@@ -41,9 +41,11 @@
     // FOR BASE WITH LOVE MAIN ------------------------------------------------
     // ////////////////////////////////////////////////////////////////////////
 
-        function mongoConnectWithLoveMainBase () {
+    
 
-            const monkey = process.env.monKey;
+        var monkey = process.env.monKey;
+
+        function mongoConnectWithLoveMainBase () {
 
             var mogooseConnectionStringMainBase = `mongodb+srv://EdBear:${monkey}@withlove.ejkplu1.mongodb.net/mainBase`;
             
@@ -53,6 +55,17 @@
                     useNewUrlParser: true,
                     useUnifiedTopology: true
                 });
+
+                    
+
+
+                setTimeout(() => {
+
+                    mongoose.disconnect();
+
+                    console.log("CONNECTION CLOSED...")
+
+                }, 10000);
         
         
             };
@@ -188,7 +201,9 @@
     
                         console.log(err);
     
-                    })
+                    });
+
+
 
                 }, 2000);
 
@@ -217,6 +232,33 @@
                     var getBoxesContentNumbers = req.body.counterOne;
 
                     var getDescriptionTextBox = req.body.description;
+
+                    var monkey = "";
+
+                    var monkeyMake = [
+
+
+                        "Yv3y",
+                        "u00q",
+                        "ePk",
+                        "UC",
+                        "0v",
+
+                        "jk",
+                        "hsjh",
+                        "98aj",
+                        "llsk",
+                        "tyj",
+
+                        "klsk",
+                        "11rt",
+                        "klkjl",
+                        "lll",
+                        "jjsh"
+
+                    ];
+
+
 
 
                         // CHECK IF DESCRIPTION BOX IS FILLED IN ----------
@@ -281,6 +323,17 @@
             
                                                         // OPEN DATABASE CONNECTION ///////////////
                                                         // ////////////////////////////////////////
+
+                                                            monkey += monkeyMake[0];
+                                                            monkey += monkeyMake[1];
+                                                            monkey += monkeyMake[2];
+                                                            monkey += monkeyMake[3];
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
+
+                                                            monkey += "0v4";
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
                     
                                                             mongoConnectWithLoveMainBase();
             
@@ -307,6 +360,8 @@
                 
                                                     var userArtistTakerTwo = req.body.artistTwo;
                                                     var userSongTakerTwo = req.body.songTwo;
+
+                                                    monkey = "";
 
                                                         // FOR USERNAMES AND COMMENTS ONE xxxxxxxxxxxxx
                                                         // ////////////////////////////////////////////
@@ -347,6 +402,17 @@
             
                                                         // OPEN DATABASE CONNECTION ///////////////
                                                         // ////////////////////////////////////////
+
+                                                            monkey += monkeyMake[0];
+                                                            monkey += monkeyMake[1];
+                                                            monkey += monkeyMake[2];
+                                                            monkey += monkeyMake[3];
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
+
+                                                            monkey += "0v4";
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
                     
                                                             mongoConnectWithLoveMainBase();
             
@@ -376,6 +442,8 @@
             
                                                     var userArtistTakerThree = req.body.artistThree;
                                                     var userSongTakerThree = req.body.songThree;
+
+                                                    monkey = "";
 
                                                         // FOR USERNAMES AND COMMENTS THREE xxxxxxxxxxx
                                                         // ////////////////////////////////////////////
@@ -420,6 +488,17 @@
             
                                                         // OPEN DATABASE CONNECTION ///////////////
                                                         // ////////////////////////////////////////
+
+                                                            monkey += monkeyMake[0];
+                                                            monkey += monkeyMake[1];
+                                                            monkey += monkeyMake[2];
+                                                            monkey += monkeyMake[3];
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
+
+                                                            monkey += "0v4";
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
                     
                                                             mongoConnectWithLoveMainBase();
             
@@ -452,6 +531,8 @@
             
                                                     var userArtistTakerFour = req.body.artistFour;
                                                     var userSongTakerFour = req.body.songFour;
+
+                                                    monkey = "";
 
                                                         // FOR USERNAMES AND COMMENTS FOUR xxxxxxxxxxxx
                                                         // ////////////////////////////////////////////
@@ -500,6 +581,17 @@
                 
                                                             // OPEN DATABASE CONNECTION ///////////////
                                                             // ////////////////////////////////////////
+
+                                                                monkey += monkeyMake[0];
+                                                                monkey += monkeyMake[1];
+                                                                monkey += monkeyMake[2];
+                                                                monkey += monkeyMake[3];
+
+                                                                console.log("SHOWING MONKEY: " + monkey);
+
+                                                                monkey += "0v4";
+
+                                                                console.log("SHOWING MONKEY: " + monkey);
                         
                                                                 mongoConnectWithLoveMainBase();
                 
@@ -535,6 +627,8 @@
             
                                                     var userArtistTakerFive = req.body.artistFive;
                                                     var userSongTakerFive = req.body.songFive;
+
+                                                    monkey = "";
 
                                                         // FOR USERNAMES AND COMMENTS FIVE xxxxxxxxxxxx
                                                         // ////////////////////////////////////////////
@@ -587,6 +681,17 @@
             
                                                         // OPEN DATABASE CONNECTION ///////////////
                                                         // ////////////////////////////////////////
+
+                                                            monkey += monkeyMake[0];
+                                                            monkey += monkeyMake[1];
+                                                            monkey += monkeyMake[2];
+                                                            monkey += monkeyMake[3];
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
+
+                                                            monkey += "0v4";
+
+                                                            console.log("SHOWING MONKEY: " + monkey);
                     
                                                             mongoConnectWithLoveMainBase();
             
