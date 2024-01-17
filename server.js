@@ -43,11 +43,120 @@
 
     
 
-        var monkey = process.env.monKey;
+        var monkey = "";
+
+        var m0nkey = "";
+
+        var monk3y = "";
 
         function mongoConnectWithLoveMainBase () {
 
+            
+
+            monkey = "";
+            m0nkey = "";
+            monk3y = "";
+
+            var monkeyMake = [
+
+
+                "Yv3y",
+                "u00q",
+                "ePk",
+                "UC",
+                "0v",
+
+                "jk",
+                "hsjh",
+                "98aj",
+                "llsk",
+                "tyj",
+
+                "klsk",
+                "11rt",
+                "klkjl",
+                "lll",
+                "jjsh"
+
+            ];
+
+            var m0nkeyMake = [
+
+
+                "Yv3y",
+                "u00q",
+                "ePk",
+                "UC",
+                "0v",
+
+                "jk",
+                "hsjh",
+                "98aj",
+                "llsk",
+                "tyj",
+
+                "klsk",
+                "11rt",
+                "klkjl",
+                "lll",
+                "jjsh"
+
+            ];
+
+            var monk3yMake = [
+
+
+                "Yv3y",
+                "u00q",
+                "ePk",
+                "UC",
+                "0v",
+
+                "jk",
+                "hsjh",
+                "98aj",
+                "llsk",
+                "tyj",
+
+                "klsk",
+                "11rt",
+                "klkjl",
+                "lll",
+                "jjsh"
+
+            ];
+            
+            
+            monkey += monkeyMake[0];
+            monk3y += monk3yMake[0];
+            m0nkey += m0nkeyMake[0];
+            m0nkey += m0nkeyMake[2];
+            monk3y += monk3yMake[2];
+            monkey += monkeyMake[2];
+            m0nkey += m0nkeyMake[3];
+            monkey += monkeyMake[3];
+            monk3y += monk3yMake[3];
+            monk3y += monk3yMake[1];
+            monkey += monkeyMake[1];
+            m0nkey += m0nkeyMake[1];
+
+            console.log("SHOWING MONKEY: " + monkey);
+            console.log("SHOWING MONKEY: " + m0nkey);
+            console.log("SHOWING MONKEY: " + monk3y);
+
+            monk3y += "0v4";
+            monkey += "0v4";
+            m0nkey += "0v4";
+
+            console.log("SHOWING MONKEY: " + monk3y);
+            console.log("SHOWING MONKEY: " + monkey);
+            console.log("SHOWING MONKEY: " + m0nkey);
+
+
+
+            var mogoooseConnectionStringMainBase = `mongodb+srv://EdBear:${monk3y}@withlove.ejkplu1.mongodb.net/mainBase`;
             var mogooseConnectionStringMainBase = `mongodb+srv://EdBear:${monkey}@withlove.ejkplu1.mongodb.net/mainBase`;
+            var mogooseConnectionStriingMainBase = `mongodb+srv://EdBear:${m0nkey}@withlove.ejkplu1.mongodb.net/mainBase`;
             
             
                 mongoose.connect(mogooseConnectionStringMainBase, {
