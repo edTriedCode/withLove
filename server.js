@@ -26,7 +26,7 @@
 // PORT NUMBER xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
 
-    const portListener = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3000;
 
 // BRING IN STATICS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
@@ -734,8 +734,8 @@
 // OPEN AND LISTEN TO PORT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
 
-    app.listen(portListener, () => {
+    app.listen(PORT, () => {
 
-        console.log("server started at " + portListener);
+        console.log("server started at " + PORT);
 
     });
