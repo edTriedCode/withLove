@@ -26,7 +26,7 @@
 // PORT NUMBER xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
 
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 8080;
 
 // BRING IN STATICS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // ////////////////////////////////////////////////////////////////////////////
